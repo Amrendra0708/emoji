@@ -56,7 +56,19 @@ class _EmojiPickerScreenState extends State<EmojiPickerScreen> {
     }
   }
 
+  Future<void> addRecentEmoji(String emoji) async {
+    recentEmojis.remove(emoji);
 
+    recentEmojis.add(emoji);
+
+    if (recentEmojis.length > 10) {
+      recentEmojis.removeAt(0); // Remove the oldest emoji if the limit is exceeded
+    }
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('recentEmojis', recentEmojis);
+    setState(() {});
+  }
 
   void toggleEmojiPicker() {
     showDialog(
