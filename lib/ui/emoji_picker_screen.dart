@@ -107,7 +107,7 @@ class _EmojiPickerScreenState extends State<EmojiPickerScreen> {
                                 onTap: () {
                                   addRecentEmoji(emoji);
                                   print('Selected recent emoji: $emoji');
-                                  Navigator.pop(context);
+                                 /// Navigator.pop(context);
                                 },
                                 child: Text(
                                   emoji,
@@ -127,7 +127,7 @@ class _EmojiPickerScreenState extends State<EmojiPickerScreen> {
                                   onTap: () {
                                     addRecentEmoji(emoji);
                                     print('Selected emoji: $emoji');
-                                    Navigator.pop(context);
+                                   // Navigator.pop(context);
                                   },
                                   child: Text(
                                     emoji,
