@@ -46,6 +46,16 @@ class _EmojiPickerScreenState extends State<EmojiPickerScreen> {
       throw Exception('Failed to load emojis');
     }
   }
+  Future<void> loadRecentEmojis() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? recentEmojiList = prefs.getStringList('recentEmojis');
+    if (recentEmojiList != null) {
+      setState(() {
+        recentEmojis = recentEmojiList;
+      });
+    }
+  }
+
 
 
   void toggleEmojiPicker() {
